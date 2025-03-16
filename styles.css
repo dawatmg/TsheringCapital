@@ -1,0 +1,76 @@
+:root {
+    --neuro-red: #ff003c;
+    --quantum-void: #000013;
+    --hud-green: #00ff88;
+    --elite-gold: #ffd700;
+}
+
+body {
+    background: var(--quantum-void);
+    color: #fff;
+    font-family: 'SF Pro Text', -apple-system, sans-serif;
+    line-height: 1.6;
+}
+
+.quantum-nav {
+    border-bottom: 3px solid var(--neuro-red);
+    padding: 1rem 0;
+}
+
+.neuro-glitch {
+    text-shadow: 3px 3px 0 var(--neuro-red),
+               -2px -2px 0 var(--hud-green);
+    animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+.tactical-cta {
+    display: grid;
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.neuro-button {
+    background: linear-gradient(45deg, #000, var(--quantum-void));
+    border: 2px solid var(--hud-green);
+    color: var(--hud-green);
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s tactical;
+}
+
+.neuro-button:hover {
+    background: var(--neuro-red);
+    border-color: var(--neuro-red);
+    color: #fff;
+}
+
+.weapon-card {
+    background: #000025;
+    border: 1px solid var(--elite-gold);
+    padding: 2rem;
+    margin: 1rem 0;
+    position: relative;
+}
+
+.weapon-card::before {
+    content: 'CLASSIFIED';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background: var(--neuro-red);
+    color: #fff;
+    padding: 2px 10px;
+    font-size: 0.8rem;
+}
+
+/* Full CSS available at https://github.com/tshering-tactical/core */
