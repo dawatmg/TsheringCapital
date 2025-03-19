@@ -1,76 +1,105 @@
+/* styles.css */
 :root {
-    --neuro-red: #ff003c;
-    --quantum-void: #000013;
-    --hud-green: #00ff88;
-    --elite-gold: #ffd700;
+    --primary-color: #002D72;
+    --secondary-color: #E5B844;
+    --text-color: #333;
 }
 
 body {
-    background: var(--quantum-void);
-    color: #fff;
-    font-family: 'SF Pro Text', -apple-system, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
+    color: var(--text-color);
 }
 
-.quantum-nav {
-    border-bottom: 3px solid var(--neuro-red);
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-.neuro-glitch {
-    text-shadow: 3px 3px 0 var(--neuro-red),
-               -2px -2px 0 var(--hud-green);
-    animation: glitch 2s infinite;
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
 }
 
-@keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
 }
 
-.tactical-cta {
+.hero {
+    background: linear-gradient(rgba(0,45,114,0.9), url('hero-bg.jpg');
+    color: #fff;
+    padding: 8rem 0;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.services-grid {
     display: grid;
-    gap: 1.5rem;
-    margin: 3rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-.neuro-button {
-    background: linear-gradient(45deg, #000, var(--quantum-void));
-    border: 2px solid var(--hud-green);
-    color: var(--hud-green);
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s tactical;
-}
-
-.neuro-button:hover {
-    background: var(--neuro-red);
-    border-color: var(--neuro-red);
-    color: #fff;
-}
-
-.weapon-card {
-    background: #000025;
-    border: 1px solid var(--elite-gold);
+.service-card {
+    background: #fff;
     padding: 2rem;
-    margin: 1rem 0;
-    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-.weapon-card::before {
-    content: 'CLASSIFIED';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    background: var(--neuro-red);
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background: var(--primary-color);
     color: #fff;
-    padding: 2px 10px;
-    font-size: 0.8rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-/* Full CSS available at https://github.com/tshering-tactical/core */
+.footer {
+    background: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero {
+        padding: 6rem 0;
+    }
+}
