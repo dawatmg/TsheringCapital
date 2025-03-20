@@ -1,101 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tshering Capital - Strategic Financial Advisory</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tshering Capital – The Ultimate Financial Strategy</title>
+  <style>
+    /* RESET & GLOBAL STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Open Sans', Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    /* COLORS */
+    :root {
+      --primary-dark: #0A1F44;
+      --secondary-dark: #222222;
+      --accent: #00AEEF;
+      --bg-light: #F5F5F5;
+      --text-light: #FFFFFF;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-color: var(--primary-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--text-light);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav ul li {
+      margin-left: 25px;
+      font-size: 18px;
+      color: var(--text-light);
+      transition: color 0.3s ease;
+    }
+    nav ul li:hover {
+      color: var(--accent);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .hero video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+      filter: brightness(0.7);
+    }
+    .hero .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+    }
+    .hero .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      top: 40%;
+      transform: translateY(-40%);
+      color: var(--text-light);
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-size: 60px;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeSlide 0.8s forwards;
+    }
+    .hero p {
+      font-size: 28px;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeSlide 0.8s 0.4s forwards;
+    }
+    .hero .cta {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: var(--accent);
+      color: var(--text-light);
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+      opacity: 0;
+      animation: fadeSlide 0.8s 0.8s forwards;
+    }
+    .hero .cta:hover {
+      background-color: darken(var(--accent), 10%);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* MAIN CONTENT */
+    main {
+      margin-top: 80px;
+    }
+    section {
+      padding: 80px 20px;
+      background-color: var(--bg-light);
+    }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 42px;
+      font-weight: bold;
+      color: var(--primary-dark);
+    }
+    .section-subheading {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 20px;
+      color: #555;
+    }
+    /* SERVICES SECTION */
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+    .service-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 300px;
+      padding: 20px;
+      border-radius: 4px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .service-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+    }
+    .service-card p {
+      font-size: 16px;
+      color: #666;
+    }
+    
+    /* ABOUT SECTION */
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .about-text {
+      flex: 1;
+    }
+    .about-image {
+      flex: 1;
+    }
+    .about-image img {
+      border-radius: 8px;
+      max-width: 100%;
+    }
+    
+    /* CONTACT SECTION */
+    .contact-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .contact-form input, .contact-form textarea {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .contact-form button {
+      padding: 15px;
+      border: none;
+      border-radius: 4px;
+      background-color: var(--accent);
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .contact-form button:hover {
+      background-color: #0088cc;
+    }
+    
+    /* FOOTER */
+    footer {
+      background-color: var(--secondary-dark);
+      color: var(--text-light);
+      padding: 40px 20px;
+      text-align: center;
+    }
+    footer p {
+      font-size: 14px;
+    }
+    
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 40px;
+      }
+      .hero p {
+        font-size: 20px;
+      }
+      .about-content {
+        flex-direction: column;
+      }
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="/" class="logo">Tshering Capital</a>
-            <div class="menu-toggle">☰</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">Tshering Capital</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Strategic Capital Solutions for Emerging Markets</h1>
-            <p>Institutional-grade advisory services for funds and corporations</p>
-        </div>
-    </section>
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <!-- Replace 'your-video.mp4' with your video file URL -->
+    <video autoplay muted loop>
+      <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Empowering Financial Mastery</h1>
+      <p>We deliver AI-driven capital generation and exclusive deal sourcing for elite fund managers and firms.</p>
+      <a href="#services" class="cta">Learn More</a>
+    </div>
+  </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Fundraising Advisory</h3>
-                    <ul>
-                        <li>LP Targeting & Outreach</li>
-                        <li>Pitch Deck Development</li>
-                        <li>Investor Roadshow Management</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h3>M&A Advisory</h3>
-                    <ul>
-                        <li>Confidential Deal Sourcing</li>
-                        <li>Transaction Structuring</li>
-                        <li>Due Diligence Management</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <h2 class="section-heading">Our Services</h2>
+    <p class="section-subheading">Transforming capital generation and deal sourcing with innovative strategies.</p>
+    <div class="services">
+      <div class="service-card">
+        <h3>Capital Generation</h3>
+        <p>Optimize fundraising for fund managers using advanced LinkedIn strategies, AI-driven lead generation, and tailored outreach scripts.</p>
+      </div>
+      <div class="service-card">
+        <h3>Deal Sourcing</h3>
+        <p>Discover exclusive, high-value deals through AI-powered market analysis, proprietary networks, and persuasive negotiation techniques.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>Our Approach</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Institutional Expertise</h3>
-                    <p>20+ years combined experience in capital markets and corporate finance</p>
-                    <h3>Global Network</h3>
-                    <p>Access to 500+ family offices and institutional investors worldwide</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <h2 class="section-heading">About Tshering Capital</h2>
+    <p class="section-subheading">Our mission is to build a financial empire by transforming market insights into actionable strategies.</p>
+    <div class="about-content">
+      <div class="about-text">
+        <p>At Tshering Capital, we are committed to empowering fund managers and firms with innovative, AI-enhanced solutions. Our expertise lies in identifying hidden capital opportunities and sourcing exclusive deals that drive exponential growth. With a relentless focus on excellence and integrity, we deliver strategic insights and actionable results.</p>
+        <p>We believe in continuous improvement, rigorous performance tracking, and a culture of accountability. Join us in revolutionizing the financial landscape.</p>
+      </div>
+      <div class="about-image">
+        <!-- Replace with your image -->
+        <img src="https://via.placeholder.com/500x300.png?text=About+Us" alt="About Tshering Capital">
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </section>
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <h2 class="section-heading">Get In Touch</h2>
+    <p class="section-subheading">Ready to transform your financial strategy? Contact us today.</p>
+    <div class="contact-container">
+      <form class="contact-form" action="mailto:info@tsheringcapital.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name (editable)" required>
+        <input type="email" name="email" placeholder="Your Email (editable)" required>
+        <input type="text" name="subject" placeholder="Subject (editable)" required>
+        <textarea name="message" rows="5" placeholder="Your Message (editable)" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Tshering Capital. All rights reserved.</p>
-            <p>Kathmandu | Hong Kong | Singapore</p>
-        </div>
-    </footer>
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Tshering Capital. All rights reserved.</p>
+  </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
