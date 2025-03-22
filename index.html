@@ -3,200 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{META_DESCRIPTION}}">
     <title>{{SITE_TITLE}}</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Preconnect to image domains if using external resources -->
+    <link rel="preconnect" href="https://ext.same-assets.com">
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="styles.css" as="style">
+    <!-- Preload hero image for faster initial rendering -->
+    <link rel="preload" href="https://ext.same-assets.com/4226829879/2121727066.jpeg" as="image">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>{{FAVICON_EMOJI}}</text></svg>">
 </head>
 <body>
-    <header>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main" class="skip-to-content">Skip to content</a>
+    
+    <header class="header">
         <div class="container header-container">
-            <div class="logo">
-                <a href="#">{{LOGO_TEXT}}</a>
+            <div class="logo" aria-label="{{COMPANY_NAME}} logo">
+                <a href="#" aria-label="Home">{{LOGO_TEXT}}</a>
             </div>
-            <nav>
-                <ul>
+            
+            <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle menu">
+                <span class="sr-only">Menu</span>
+                <span class="hamburger"></span>
+            </button>
+            
+            <nav id="primary-navigation" aria-label="Main">
+                <ul role="list">
                     <li><a href="#about">{{NAV_ITEM_1}}</a></li>
                     <li><a href="#product">{{NAV_ITEM_2}}</a></li>
                     <li><a href="#resources">{{NAV_ITEM_3}}</a></li>
                     <li><a href="#contact">{{NAV_ITEM_4}}</a></li>
                 </ul>
             </nav>
-            <div class="cta-button">
-                <a href="#" class="btn">{{CTA_BUTTON_TEXT}}</a>
-            </div>
+            
+            <a href="#contact" class="btn header-cta">{{CTA_BUTTON_TEXT}}</a>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <h1>{{HERO_TITLE}}</h1>
-            <p>{{HERO_SUBTITLE}}</p>
-            <a href="#" class="btn">{{HERO_BUTTON_TEXT}}</a>
-        </div>
-    </section>
-
-    <section id="vision" class="vision">
-        <div class="container">
-            <h2>{{VISION_TITLE}}</h2>
-            <p>{{VISION_TEXT}}</p>
-            <div class="vision-images">
-                <div class="image-box"></div>
-                <div class="image-box"></div>
-                <div class="image-box"></div>
+    <main id="main">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="container">
+                <h1 id="hero-title">{{HERO_TITLE}}</h1>
+                <p>{{HERO_SUBTITLE}}</p>
+                <a href="#vision" class="btn btn-primary">{{HERO_BUTTON_TEXT}}</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2>{{ABOUT_TITLE}}</h2>
-            <p>{{ABOUT_TEXT}}</p>
-            
-            <div class="stats-container">
-                <div class="stat-box">
-                    <h3>{{STAT_1_NUMBER}}</h3>
-                    <p>{{STAT_1_TEXT}}</p>
-                </div>
-                <div class="stat-box">
-                    <h3>{{STAT_2_NUMBER}}</h3>
-                    <p>{{STAT_2_TEXT}}</p>
-                </div>
-                <div class="stat-box">
-                    <h3>{{STAT_3_NUMBER}}</h3>
-                    <p>{{STAT_3_TEXT}}</p>
-                </div>
-                <div class="stat-box">
-                    <h3>{{STAT_4_NUMBER}}</h3>
-                    <p>{{STAT_4_TEXT}}</p>
+        <section id="vision" class="vision section" aria-labelledby="vision-title">
+            <div class="container">
+                <h2 id="vision-title">{{VISION_TITLE}}</h2>
+                <p>{{VISION_TEXT}}</p>
+                <div class="vision-images">
+                    <div class="image-box" aria-hidden="true"></div>
+                    <div class="image-box" aria-hidden="true"></div>
+                    <div class="image-box" aria-hidden="true"></div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="product" class="product">
-        <div class="container">
-            <h2>{{PRODUCT_TITLE}}</h2>
-            <p>{{PRODUCT_TEXT}}</p>
-            <a href="#" class="btn">{{PRODUCT_BUTTON_TEXT}}</a>
-            <div class="product-image"></div>
-        </div>
-    </section>
-
-    <section id="resources" class="resources">
-        <div class="container">
-            <h2>{{RESOURCES_TITLE}}</h2>
-            <div class="articles-container">
-                <div class="article-card">
-                    <div class="date">{{ARTICLE_1_DATE}}</div>
-                    <div class="article-image"></div>
-                    <h3>{{ARTICLE_1_TITLE}}</h3>
-                    <p>{{ARTICLE_1_TEXT}}</p>
-                </div>
-                <div class="article-card">
-                    <div class="date">{{ARTICLE_2_DATE}}</div>
-                    <div class="article-image"></div>
-                    <h3>{{ARTICLE_2_TITLE}}</h3>
-                    <p>{{ARTICLE_2_TEXT}}</p>
-                </div>
-                <div class="article-card">
-                    <div class="date">{{ARTICLE_3_DATE}}</div>
-                    <div class="article-image"></div>
-                    <h3>{{ARTICLE_3_TITLE}}</h3>
-                    <p>{{ARTICLE_3_TEXT}}</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="brands" class="brands">
-        <div class="container">
-            <h2>{{BRANDS_TITLE}}</h2>
-            <p>{{BRANDS_TEXT}}</p>
-            <div class="brands-container">
-                <div class="brand-logo"></div>
-                <div class="brand-logo"></div>
-                <div class="brand-logo"></div>
-                <div class="brand-logo"></div>
-                <div class="brand-logo"></div>
-                <div class="brand-logo"></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2>{{TESTIMONIALS_TITLE}}</h2>
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <p>{{TESTIMONIAL_1_TEXT}}</p>
-                    <div class="testimonial-author">
-                        <div class="author-image"></div>
-                        <div>
-                            <h4>{{TESTIMONIAL_1_NAME}}</h4>
-                            <p>{{TESTIMONIAL_1_SUBTITLE}}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p>{{TESTIMONIAL_2_TEXT}}</p>
-                    <div class="testimonial-author">
-                        <div class="author-image"></div>
-                        <div>
-                            <h4>{{TESTIMONIAL_2_NAME}}</h4>
-                            <p>{{TESTIMONIAL_2_SUBTITLE}}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p>{{TESTIMONIAL_3_TEXT}}</p>
-                    <div class="testimonial-author">
-                        <div class="author-image"></div>
-                        <div>
-                            <h4>{{TESTIMONIAL_3_NAME}}</h4>
-                            <p>{{TESTIMONIAL_3_SUBTITLE}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>{{CONTACT_TITLE}}</h2>
-            <p>{{CONTACT_TEXT}}</p>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <p>{{CONTACT_PHONE}}</p>
-                    <p>{{CONTACT_EMAIL}}</p>
-                    <p>{{CONTACT_ADDRESS_LINE1}}</p>
-                    <p>{{CONTACT_ADDRESS_LINE2}}</p>
-                </div>
+        <section id="about" class="about section" aria-labelledby="about-title">
+            <div class="container">
+                <h2 id="about-title">{{ABOUT_TITLE}}</h2>
+                <p>{{ABOUT_TEXT}}</p>
                 
-                <form id="contactForm" class="contact-form">
-                    <div class="form-row">
-                        <input type="text" placeholder="{{FORM_FIRST_NAME}}" required>
-                        <input type="text" placeholder="{{FORM_LAST_NAME}}" required>
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <h3>{{STAT_1_NUMBER}}</h3>
+                        <p>{{STAT_1_TEXT}}</p>
                     </div>
-                    <input type="email" placeholder="{{FORM_EMAIL}}" required>
-                    <input type="text" placeholder="{{FORM_SUBJECT}}">
-                    <textarea placeholder="{{FORM_MESSAGE}}" required></textarea>
-                    <button type="submit" class="btn btn-submit">{{FORM_SUBMIT}}</button>
-                </form>
+                    <div class="stat-box">
+                        <h3>{{STAT_2_NUMBER}}</h3>
+                        <p>{{STAT_2_TEXT}}</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>{{STAT_3_NUMBER}}</h3>
+                        <p>{{STAT_3_TEXT}}</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>{{STAT_4_NUMBER}}</h3>
+                        <p>{{STAT_4_TEXT}}</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="cta-section">
-        <div class="container">
-            <h2>{{CTA_SECTION_TITLE}}</h2>
-            <p>{{CTA_SECTION_TEXT}}</p>
-            <a href="#" class="btn">{{CTA_SECTION_BUTTON}}</a>
-        </div>
-    </section>
+        <section id="product" class="product section" aria-labelledby="product-title">
+            <div class="container">
+                <h2 id="product-title">{{PRODUCT_TITLE}}</h2>
+                <p>{{PRODUCT_TEXT}}</p>
+                <a href="#contact" class="btn">{{PRODUCT_BUTTON_TEXT}}</a>
+                <div class="product-image" role="img" aria-label="{{PRODUCT_IMAGE_ALT}}"></div>
+            </div>
+        </section>
 
-    <footer>
+        <section id="resources" class="resources section" aria-labelledby="resources-title">
+            <div class="container">
+                <h2 id="resources-title">{{RESOURCES_TITLE}}</h2>
+                <div class="articles-container">
+                    <article class="article-card">
+                        <time class="date">{{ARTICLE_1_DATE}}</time>
+                        <div class="article-image" role="img" aria-label="{{ARTICLE_1_IMAGE_ALT}}"></div>
+                        <h3>{{ARTICLE_1_TITLE}}</h3>
+                        <p>{{ARTICLE_1_TEXT}}</p>
+                    </article>
+                    <article class="article-card">
+                        <time class="date">{{ARTICLE_2_DATE}}</time>
+                        <div class="article-image" role="img" aria-label="{{ARTICLE_2_IMAGE_ALT}}"></div>
+                        <h3>{{ARTICLE_2_TITLE}}</h3>
+                        <p>{{ARTICLE_2_TEXT}}</p>
+                    </article>
+                    <article class="article-card">
+                        <time class="date">{{ARTICLE_3_DATE}}</time>
+                        <div class="article-image" role="img" aria-label="{{ARTICLE_3_IMAGE_ALT}}"></div>
+                        <h3>{{ARTICLE_3_TITLE}}</h3>
+                        <p>{{ARTICLE_3_TEXT}}</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="brands" class="brands section" aria-labelledby="brands-title">
+            <div class="container">
+                <h2 id="brands-title">{{BRANDS_TITLE}}</h2>
+                <p>{{BRANDS_TEXT}}</p>
+                <div class="brands-container">
+                    <div class="brand-logo" role="img" aria-label="{{BRAND_1_NAME}}"></div>
+                    <div class="brand-logo" role="img" aria-label="{{BRAND_2_NAME}}"></div>
+                    <div class="brand-logo" role="img" aria-label="{{BRAND_3_NAME}}"></div>
+                    <div class="brand-logo" role="img" aria-label="{{BRAND_4_NAME}}"></div>
+                    <div class="brand-logo" role="img" aria-label="{{BRAND_5_NAME}}"></div>
+                    <div class="brand-logo" role="img" aria-label="{{BRAND_6_NAME}}"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials section" aria-labelledby="testimonials-title">
+            <div class="container">
+                <h2 id="testimonials-title">{{TESTIMONIALS_TITLE}}</h2>
+                <div class="testimonials-container">
+                    <blockquote class="testimonial-card">
+                        <p>{{TESTIMONIAL_1_TEXT}}</p>
+                        <footer class="testimonial-author">
+                            <div class="author-image" role="img" aria-label="{{TESTIMONIAL_1_NAME}}"></div>
+                            <div>
+                                <cite>{{TESTIMONIAL_1_NAME}}</cite>
+                                <p>{{TESTIMONIAL_1_SUBTITLE}}</p>
+                            </div>
+                        </footer>
+                    </blockquote>
+                    <blockquote class="testimonial-card">
+                        <p>{{TESTIMONIAL_2_TEXT}}</p>
+                        <footer class="testimonial-author">
+                            <div class="author-image" role="img" aria-label="{{TESTIMONIAL_2_NAME}}"></div>
+                            <div>
+                                <cite>{{TESTIMONIAL_2_NAME}}</cite>
+                                <p>{{TESTIMONIAL_2_SUBTITLE}}</p>
+                            </div>
+                        </footer>
+                    </blockquote>
+                    <blockquote class="testimonial-card">
+                        <p>{{TESTIMONIAL_3_TEXT}}</p>
+                        <footer class="testimonial-author">
+                            <div class="author-image" role="img" aria-label="{{TESTIMONIAL_3_NAME}}"></div>
+                            <div>
+                                <cite>{{TESTIMONIAL_3_NAME}}</cite>
+                                <p>{{TESTIMONIAL_3_SUBTITLE}}</p>
+                            </div>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact section" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title">{{CONTACT_TITLE}}</h2>
+                <p>{{CONTACT_TEXT}}</p>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p><strong>Phone:</strong> <a href="tel:{{CONTACT_PHONE_RAW}}">{{CONTACT_PHONE}}</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></p>
+                        <address>
+                            <p>{{CONTACT_ADDRESS_LINE1}}</p>
+                            <p>{{CONTACT_ADDRESS_LINE2}}</p>
+                        </address>
+                    </div>
+                    
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="sr-only">{{FORM_FIRST_NAME}}</label>
+                                <input type="text" id="firstName" name="firstName" placeholder="{{FORM_FIRST_NAME}}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="sr-only">{{FORM_LAST_NAME}}</label>
+                                <input type="text" id="lastName" name="lastName" placeholder="{{FORM_LAST_NAME}}" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="sr-only">{{FORM_EMAIL}}</label>
+                            <input type="email" id="email" name="email" placeholder="{{FORM_EMAIL}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="sr-only">{{FORM_SUBJECT}}</label>
+                            <input type="text" id="subject" name="subject" placeholder="{{FORM_SUBJECT}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="sr-only">{{FORM_MESSAGE}}</label>
+                            <textarea id="message" name="message" placeholder="{{FORM_MESSAGE}}" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-submit">{{FORM_SUBMIT}}</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section section" aria-labelledby="cta-title">
+            <div class="container">
+                <h2 id="cta-title">{{CTA_SECTION_TITLE}}</h2>
+                <p>{{CTA_SECTION_TEXT}}</p>
+                <a href="#contact" class="btn btn-primary">{{CTA_SECTION_BUTTON}}</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-columns">
                 <div class="footer-column">
@@ -204,19 +240,19 @@
                     <p>{{FOOTER_BUSINESS_TEXT}}</p>
                 </div>
                 
-                <div class="footer-column">
+                <nav class="footer-column" aria-label="Footer">
                     <h3>{{FOOTER_MENU_TITLE}}</h3>
-                    <ul>
+                    <ul role="list">
                         <li><a href="#about">{{FOOTER_NAV_ITEM_1}}</a></li>
                         <li><a href="#product">{{FOOTER_NAV_ITEM_2}}</a></li>
                         <li><a href="#resources">{{FOOTER_NAV_ITEM_3}}</a></li>
                         <li><a href="#contact">{{FOOTER_NAV_ITEM_4}}</a></li>
                     </ul>
-                </div>
+                </nav>
                 
                 <div class="footer-column">
                     <h3>{{FOOTER_POLICY_TITLE}}</h3>
-                    <ul>
+                    <ul role="list">
                         <li><a href="#">{{FOOTER_POLICY_ITEM_1}}</a></li>
                         <li><a href="#">{{FOOTER_POLICY_ITEM_2}}</a></li>
                         <li><a href="#">{{FOOTER_POLICY_ITEM_3}}</a></li>
@@ -225,10 +261,10 @@
                 
                 <div class="footer-column">
                     <h3>{{FOOTER_SOCIAL_TITLE}}</h3>
-                    <ul>
-                        <li><a href="#">{{FOOTER_SOCIAL_ITEM_1}}</a></li>
-                        <li><a href="#">{{FOOTER_SOCIAL_ITEM_2}}</a></li>
-                        <li><a href="#">{{FOOTER_SOCIAL_ITEM_3}}</a></li>
+                    <ul class="social-links" role="list">
+                        <li><a href="#" aria-label="{{FOOTER_SOCIAL_ITEM_1}}">{{FOOTER_SOCIAL_ITEM_1}}</a></li>
+                        <li><a href="#" aria-label="{{FOOTER_SOCIAL_ITEM_2}}">{{FOOTER_SOCIAL_ITEM_2}}</a></li>
+                        <li><a href="#" aria-label="{{FOOTER_SOCIAL_ITEM_3}}">{{FOOTER_SOCIAL_ITEM_3}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -239,6 +275,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
